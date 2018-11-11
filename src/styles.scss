@@ -1,0 +1,28 @@
+/*
+    Google fonts
+ */
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
+
+
+/********************************** Default Styles ***************************************/
+
+html {
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+  font-size: 16px;
+}
+
+
+body {
+  font-size: 16px;
+  line-height: 1.5;
+  word-break: break-word;
+  font-family: 'Open Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #333333;
+  background-color: #ffffff;
+  font-weight: 400;
+}

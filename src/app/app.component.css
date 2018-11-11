@@ -1,0 +1,12 @@
+#app-component {
+  padding-top: 25px;
+  padding-bottom: 25px;
+  min-height: 100vh; }
+  #app-component .heading {
+    font-size: 27px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    padding-top: 25px;
+    text-align: center; }
+
+/*# sourceMappingURL=app.component.css.map */
