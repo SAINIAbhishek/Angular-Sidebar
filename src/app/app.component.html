@@ -1,11 +1,18 @@
 <section id="app-component">
+
   <div class="column col-xs-12 col-11 col-mx-auto">
 
     <h1 class="heading">Angular Sidebar</h1>
 
     <p class="para">Click on the button and it will open the sidebar that is an another component, we are using the service to send and receive the data. The sidebar also uses the Angular Animations.</p>
 
-    <button type="button" class="btn">Demo</button>
+    <button type="button" class="btn" (click)="onClick($event)">Demo</button>
 
   </div>
+
+  <!-- Sidebar component -->
+  <app-sidebar></app-sidebar>
+  <!-- /Sidebar component -->
+
 </section>
+
