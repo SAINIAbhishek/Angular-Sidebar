@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {SidebarInterface} from './sidebar/interface/sidebar-interface';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,8 @@ import {Component, OnInit} from '@angular/core';
 })
 
 export class AppComponent implements OnInit {
+
+  sidebarValue: SidebarInterface = {};
 
   ngOnInit(): void {
   }
