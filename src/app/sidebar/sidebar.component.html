@@ -1,6 +1,6 @@
-<main class="sidebar-wrapper" id="sidebar-wrapper" (click)="toggleState($event, content)">
+<main id="sidebar-wrapper" (click)="toggleState($event, content)">
 
-  <section class="sidebar-content" id="sidebar" [ngStyle]="{ 'width': size ? size : '40%'  }">
+  <section id="sidebar-content" [ngStyle]="{ 'width': size ? size : '40%'  }">
 
     <div #content>
 

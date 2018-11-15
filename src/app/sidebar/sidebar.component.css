@@ -1,4 +1,4 @@
-.sidebar-wrapper {
+#sidebar-wrapper {
   top: 0;
   width: 100%;
   height: 100vh;
@@ -13,7 +13,7 @@
   overflow: auto;
   overflow-x: hidden; }
 
-.sidebar-content {
+#sidebar-content {
   width: 40%;
   min-height: 100vh;
   background: #FFFFFF;
@@ -45,10 +45,10 @@
 
 /********************************** Media ***************************************/
 @media (max-width: 840px) {
-  .sidebar-content {
+  #sidebar-content {
     width: 65% !important; } }
 @media (max-width: 600px) {
-  .sidebar-content {
+  #sidebar-content {
     width: 90% !important; } }
 
 /*# sourceMappingURL=sidebar.component.css.map */
