@@ -16,6 +16,15 @@ export class AppComponent implements OnInit {
 
   onClick(event: Event) {
     // sending the values to child component.
+    this.sidebarValue = {
+      state: 'active',
+      type: 'type',
+      title: 'Header'
+    };
+  }
+
+  onClose(value: string) {
+    this.sidebarValue.state = value;
   }
 
 }

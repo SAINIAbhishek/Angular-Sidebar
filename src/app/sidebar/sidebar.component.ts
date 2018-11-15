@@ -1,21 +1,43 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { SidebarInterface } from './interface/sidebar-interface';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.scss']
+  styleUrls: ['./sidebar.component.scss'],
+  animations: [
+  ]
 })
 
 export class SidebarComponent implements OnInit {
 
-  type: string;
-  width: string;
-  state: string;
-  title: string;
+  @Input() set template(value: SidebarInterface) {
+    this.setTemplate(value);
+  }
+
+  @Output() closeState = new EventEmitter<string>();
+
+  title: string; // Sidebar heading
+  state: string; // Animation state
+  size: string; // Sidebar size
+  type: string; // Sidebar type
 
   constructor() { }
 
   ngOnInit() {
+    this.state = 'inactive';
+  }
+
+  /***
+   * This function is used to initialize the received value to the sidebar variables.
+   * @param {SidebarInterface} value
+   */
+  private setTemplate(value: SidebarInterface) {
+    this.type = value.type;
+    this.state = value.animate_state;
+    this.title = value.title;
+    this.size = value.size;
   }
 
   /***
@@ -28,9 +50,9 @@ export class SidebarComponent implements OnInit {
       this.state = 'inactive';
       setTimeout(() => {
         target.scrollIntoView();
+        this.closeState.emit(this.state);
       }, 300);
     }
   }
-
 
 }

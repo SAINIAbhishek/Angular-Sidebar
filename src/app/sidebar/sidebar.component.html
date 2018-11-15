@@ -1,6 +1,6 @@
-<main class="sidebar-wrapper" id="sidebar-wrapper" (click)="toggleState($event, content)" [@animateWrapper]="state">
+<main class="sidebar-wrapper" id="sidebar-wrapper" (click)="toggleState($event, content)">
 
-  <section class="sidebar-content" [@animateContent]="state" id="sidebar" [ngStyle]="{ 'width': size ? size : '20vw' }">
+  <section class="sidebar-content" id="sidebar" [ngStyle]="{ 'width': size ? size : '40%'  }">
 
     <div #content>
 
@@ -8,8 +8,8 @@
       <header class="sidebar-header">
         <div class="column col-xs-12 col-11 col-mx-auto">
           <div class="header-content">
-            <span>Title</span>
-            <span><i class="icon icon-cross" id="close" (click)="toggleState($event, content)"></i></span>
+            <span>{{ title }}</span>
+            <span><i class="fas fa-times" id="close" (click)="toggleState($event, content)"></i></span>
           </div>
         </div>
       </header>

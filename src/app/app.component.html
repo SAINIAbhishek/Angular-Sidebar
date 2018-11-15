@@ -11,7 +11,10 @@
   </div>
 
   <!-- Sidebar component -->
-  <app-sidebar></app-sidebar>
+  <app-sidebar
+    [template]="sidebarValue"
+    (closeState)="onClose($event)">
+  </app-sidebar>
   <!-- /Sidebar component -->
 
 </section>

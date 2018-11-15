@@ -12,7 +12,7 @@ import { SidebarModule } from './sidebar/sidebar-module';
   ],
   imports: [
     BrowserModule,
-    SidebarModule
+    SidebarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
