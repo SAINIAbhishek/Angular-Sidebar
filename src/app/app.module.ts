@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 
 import { SidebarModule } from './sidebar/sidebar-module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { SidebarModule } from './sidebar/sidebar-module';
   imports: [
     BrowserModule,
     SidebarModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

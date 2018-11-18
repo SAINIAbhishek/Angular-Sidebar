@@ -1,8 +1,7 @@
 // Modules
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 // Components
@@ -16,7 +15,7 @@ import { SidebarComponent } from './sidebar.component';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    FormsModule,
   ],
   declarations: [
     SidebarComponent

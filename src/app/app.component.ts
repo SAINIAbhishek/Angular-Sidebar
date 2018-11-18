@@ -17,14 +17,14 @@ export class AppComponent implements OnInit {
   onClick(event: Event) {
     // sending the values to child component.
     this.sidebarValue = {
-      state: 'active',
+      animate_state: this.sidebarValue.animate_state === 'active' ? 'inactive' : 'active',
       type: 'type',
       title: 'Header'
     };
   }
 
   onClose(value: string) {
-    this.sidebarValue.state = value;
+    this.sidebarValue.animate_state = value;
   }
 
 }

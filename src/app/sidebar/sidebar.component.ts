@@ -7,6 +7,29 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss'],
   animations: [
+    trigger( 'sidebarWrapper', [
+      state('inactive', style({
+        display: 'none',
+        opacity: 0,
+        backgroundColor: 'transparent'
+      })),
+      state('active', style({
+        display: 'block',
+        opacity: 1,
+        backgroundColor: 'rgba(0,0,0,0.65)'
+      })),
+      transition('inactive => active', animate('.8ms ease-in')),
+      transition('active => inactive', animate('700.8ms ease-in')),
+    ]),
+    trigger(('sidebarContent'), [
+      state('active', style({
+        transform: 'translateX(0)'
+      })),
+      state('inactive', style({
+        transform: 'translateX(100%)'
+      })),
+      transition('inactive <=> active', animate('700ms ease-in-out')),
+    ])
   ]
 })
 
@@ -26,7 +49,6 @@ export class SidebarComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.state = 'inactive';
   }
 
   /***
