@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {SidebarInterface} from './sidebar/interface/sidebar-interface';
+import { Component, OnInit } from '@angular/core';
+import { SidebarInterface } from './sidebar/interface/sidebar-interface';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +9,7 @@ import {SidebarInterface} from './sidebar/interface/sidebar-interface';
 
 export class AppComponent implements OnInit {
 
-  sidebarValue: SidebarInterface = {};
+  sidebarValue: SidebarInterface;
 
   ngOnInit(): void {
   }
@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
   onClick(event: Event) {
     // sending the values to child component.
     this.sidebarValue = {
-      animate_state: this.sidebarValue.animate_state === 'active' ? 'inactive' : 'active',
+      animate_state: this.sidebarValue.animate_state === 'inactive' ? 'active' : 'inactive',
       type: 'type',
       title: 'Header'
     };
