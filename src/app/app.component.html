@@ -8,11 +8,19 @@
 
     <button type="button" class="btn" (click)="onClick($event)">Sidebar 1 Demo</button>
 
+    <div style="margin-top: 15px">
+      <button type="button" class="btn" (click)="onClick2($event)">Sidebar 2 Demo</button>
+    </div>
+
   </div>
 
   <!-- Sidebar component -->
   <app-sidebar [template]="sidebarValue" (closeState)="onClose($event)"></app-sidebar>
   <!-- /Sidebar component -->
+
+  <!-- Sidebar 2 component -->
+  <app-sidebar-2 [template]="sidebarValue2" (closeState)="onClose2($event)"></app-sidebar-2>
+  <!-- /Sidebar 2 component -->
 
 </section>
 
