@@ -1,8 +1,10 @@
-<main class="sidebar-container" [@animateSidebar]="state" id="sidebar-wrapper" [ngStyle]="{ 'width': size ? size : '40%'  }">
-  <section class="sidebar-content">
+<main class="main-container sidebar-container" id="sidebar-wrapper" (click)="toggleState($event, content)" [@animateWrapper]="state">
+
+  <section class="sidebar-content" [@animateContent]="state" id="sidebar" [ngStyle]="{ 'width': size ? size : '40%'  }">
+
     <div #content>
 
-      <!-- Header -->
+      <!-- Heading -->
       <header class="sidebar-header">
         <div class="column col-xs-12 col-11 col-mx-auto">
           <div class="header-content">
@@ -11,10 +13,14 @@
           </div>
         </div>
       </header>
+      <!-- /Heading -->
 
       <!-- Content -->
       <ng-content></ng-content>
+      <!-- /Content -->
 
     </div>
+
   </section>
+
 </main>

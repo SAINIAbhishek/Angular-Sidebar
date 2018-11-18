@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 
 import { SidebarModule } from './sidebar/sidebar-module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Sidebar2Module } from './sidebar-2/sidebar-2-module';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     SidebarModule,
+    Sidebar2Module,
     BrowserAnimationsModule
   ],
   providers: [],

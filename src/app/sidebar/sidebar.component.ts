@@ -7,27 +7,19 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss'],
   animations: [
-    trigger( 'animateWrapper', [
+    trigger( 'animateSidebar', [
       state('inactive', style({
         display: 'none',
         opacity: 0,
-        background: 'none'
+        transform: 'translateX(100%)'
       })),
       state('active', style({
         display: 'block',
         opacity: 1,
-        background: 'rgba(0,0,0,0.65)'
-      })),
-      transition('active => inactive', animate('700.5ms ease-in-out')),
-    ]),
-    trigger(('animateContent'), [
-      state('inactive', style({
-        transform: 'translateX(100%)'
-      })),
-      state('active', style({
         transform: 'translateX(0)'
       })),
-      transition('inactive <=> active', animate('700ms ease-in-out')),
+      transition('inactive => active', animate('700ms ease-in-out')),
+      transition('active => inactive', animate('700ms ease-in-out')),
     ])
   ]
 })
@@ -40,26 +32,26 @@ export class SidebarComponent implements OnInit {
 
   @Output() closeState = new EventEmitter<string>();
 
-  title: string; // heading
-  state: string; // animation state
-  size: string; // size
-  type: string; // type
+  private _title: string; // heading
+  private _state: string; // animation state
+  private _size: string; // size
+  private _type: string; // type
 
   constructor() { }
 
   ngOnInit() {
-    this.state = 'inactive';
+    this._state = 'inactive';
   }
 
   /***
    * This function is used to initialize the received value to the sidebar variables.
    * @param {SidebarInterface} value
    */
-  setTemplate(value: SidebarInterface) {
-    this.type = value.type;
-    this.state = value.animate_state;
-    this.title = value.title;
-    this.size = value.size;
+  private setTemplate(value: SidebarInterface) {
+    this._type = value.type;
+    this._state = value.animate_state === undefined ? 'inactive' : value.animate_state ;
+    this._title = value.title;
+    this._size = value.size;
   }
 
   /***
@@ -69,12 +61,32 @@ export class SidebarComponent implements OnInit {
    */
   toggleState(event: Event, target: any) {
     if (event.target['id'] === 'sidebar-wrapper' || event.target['id'] === 'close') {
-      this.state = 'inactive';
+      this._state = 'inactive';
       setTimeout(() => {
         target.scrollIntoView();
-        this.closeState.emit(this.state);
+        this.closeState.emit(this._state);
       }, 300);
     }
+  }
+
+  get title(): string {
+    return this._title;
+  }
+
+  get state(): string {
+    return this._state;
+  }
+
+  get size(): string {
+    return this._size;
+  }
+
+  set size(value: string) {
+    this._size = value;
+  }
+
+  get type(): string {
+    return this._type;
   }
 
 }

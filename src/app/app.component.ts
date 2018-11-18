@@ -9,7 +9,7 @@ import { SidebarInterface } from './sidebar/interface/sidebar-interface';
 
 export class AppComponent implements OnInit {
 
-  sidebarValue: SidebarInterface;
+  sidebarValue: SidebarInterface = {};
 
   ngOnInit(): void {
   }
@@ -17,9 +17,9 @@ export class AppComponent implements OnInit {
   onClick(event: Event) {
     // sending the values to child component.
     this.sidebarValue = {
-      animate_state: this.sidebarValue.animate_state === 'inactive' ? 'active' : 'inactive',
+      animate_state: this.sidebarValue.animate_state === 'active' ? 'inactive' : 'active',
       type: 'type',
-      title: 'Header'
+      title: 'Header',
     };
   }
 
