@@ -1,26 +1,26 @@
-<main id="sidebar-wrapper" (click)="toggleState($event, content)">
+<main class="main-container sidebar-container" id="sidebar-wrapper" (click)="toggleState($event, content)" [@animateWrapper]="state">
 
-  <section id="sidebar-content" [ngStyle]="{ 'width': size ? size : '40%'  }">
+  <section class="sidebar-content" [@animateContent]="state" id="sidebar" [ngStyle]="{ 'width': size ? size : '40%'  }">
 
-  <div #content>
+    <div #content>
 
-    <!-- Heading -->
-    <header class="sidebar-header">
-      <div class="column col-xs-12 col-11 col-mx-auto">
-        <div class="header-content">
-          <span>{{ title }}</span>
-          <span><i class="fas fa-times" id="close" (click)="toggleState($event, content)"></i></span>
+      <!-- Heading -->
+      <header class="sidebar-header">
+        <div class="column col-xs-12 col-11 col-mx-auto">
+          <div class="header-content">
+            <span>{{ title }}</span>
+            <span><i class="fas fa-times" id="close" (click)="toggleState($event, content)"></i></span>
+          </div>
         </div>
-      </div>
-    </header>
-    <!-- /Heading -->
+      </header>
+      <!-- /Heading -->
 
-    <!-- Content -->
-    <ng-content></ng-content>
-    <!-- /Content -->
+      <!-- Content -->
+      <ng-content></ng-content>
+      <!-- /Content -->
 
-  </div>
+    </div>
 
-</section>
+  </section>
 
 </main>

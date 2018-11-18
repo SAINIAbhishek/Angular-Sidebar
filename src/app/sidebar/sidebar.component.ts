@@ -7,26 +7,25 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss'],
   animations: [
-    trigger( 'sidebarWrapper', [
+    trigger( 'animateWrapper', [
       state('inactive', style({
         display: 'none',
         opacity: 0,
-        backgroundColor: 'transparent'
+        background: 'none'
       })),
       state('active', style({
         display: 'block',
         opacity: 1,
-        backgroundColor: 'rgba(0,0,0,0.65)'
+        background: 'rgba(0,0,0,0.65)'
       })),
-      transition('inactive => active', animate('.8ms ease-in')),
-      transition('active => inactive', animate('700.8ms ease-in')),
+      transition('active => inactive', animate('700.5ms ease-in-out')),
     ]),
-    trigger(('sidebarContent'), [
-      state('active', style({
-        transform: 'translateX(0)'
-      })),
+    trigger(('animateContent'), [
       state('inactive', style({
         transform: 'translateX(100%)'
+      })),
+      state('active', style({
+        transform: 'translateX(0)'
       })),
       transition('inactive <=> active', animate('700ms ease-in-out')),
     ])
@@ -41,21 +40,22 @@ export class SidebarComponent implements OnInit {
 
   @Output() closeState = new EventEmitter<string>();
 
-  title: string; // Sidebar heading
-  state: string; // Animation state
-  size: string; // Sidebar size
-  type: string; // Sidebar type
+  title: string; // heading
+  state: string; // animation state
+  size: string; // size
+  type: string; // type
 
   constructor() { }
 
   ngOnInit() {
+    this.state = 'inactive';
   }
 
   /***
    * This function is used to initialize the received value to the sidebar variables.
    * @param {SidebarInterface} value
    */
-  private setTemplate(value: SidebarInterface) {
+  setTemplate(value: SidebarInterface) {
     this.type = value.type;
     this.state = value.animate_state;
     this.title = value.title;
